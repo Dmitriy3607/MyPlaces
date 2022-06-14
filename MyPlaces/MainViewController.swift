@@ -17,6 +17,7 @@ class MainViewController: UITableViewController {
     ]
                           
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,11 +40,17 @@ class MainViewController: UITableViewController {
         
         cell.textLabel?.text = restaurant
         cell.imageView?.image = UIImage(named: restaurant)
+        cell.imageView?.layer.cornerRadius = cell.frame.size.height / 2
+        cell.imageView?.clipsToBounds = true
         
         return cell
     }
     
-
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        200
+    }
     /*
     // MARK: - Navigation
 
